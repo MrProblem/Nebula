@@ -6,7 +6,7 @@ using namespace std;
 #pragma once
 
 #define BOARD_SIZE 81 
-#define BOARD_LEN  11
+#define BOARD_LEN  15
 
 #define EMPTY      0
 #define BLACK      1

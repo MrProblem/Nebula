@@ -50,20 +50,69 @@ CChessBoard::CChessBoard()
 
 void CChessBoard::showBoard()
 {
-	for (int i = 1; i < BOARD_LEN-1; i++)
+	int i;
+
+	printf(" 1");
+	for (i = 2; i < BOARD_LEN-1; i++)
 	{
 		printf("%4d", i);
 	}
+	
 	cout << endl;
 	for (int j = 1; j < BOARD_LEN - 1; j++)
 	{
-		for (int i = 1; i < BOARD_LEN - 1; i++)
+		for (i = 1; i < BOARD_LEN - 1; i++)
 		{
 			if (chessBoard[i][j] == BLACK)
-				cout << "¡ð";
+			{
+				if (i == BOARD_LEN - 2)
+					cout << "¡ð";
+				else
+					cout << "¡ð©¥";
+			}
+
 			else if (chessBoard[i][j] == WHITE)
-				cout << "¡ñ";
+			{
+				if (i == BOARD_LEN - 2)
+					cout << "¡ñ";
+				else
+					cout << "¡ñ©¥";
+			}
+
 			else if (chessBoard[i][j] == EMPTY)
+			{
+				if (j == 1)
+				{
+					if (i == 1)						cout << "©³©¥";
+					else if (i == BOARD_LEN - 2)	cout << "©·" << j;
+					else							cout << "©×©¥";
+				}
+				
+				else if (j == BOARD_LEN - 2)
+				{
+					if (i == 1)						cout << "©»©¥";
+					else if (i == BOARD_LEN - 2)	cout << "©¿" << j;
+					else							cout << "©ß©¥";
+				}
+				
+				else
+				{
+					if (i == 1)						cout << "©Ç©¥";
+					else if (i == BOARD_LEN - 2)	cout << "©Ï" << j;
+					else							cout << "©ï©¥";
+				}
+			}
+		}
+
+		cout << endl;
+
+		if (j != BOARD_LEN - 2)
+		{
+			for (int k = 0; k < BOARD_LEN - 2; k++)
+			{
+				cout << "©§  ";
+			}
+			cout << endl;
 		}
 	}
 }
